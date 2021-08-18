@@ -25,4 +25,10 @@ internal class SortKtTest {
         assertEquals(arr.sorted(), sortedArr.toList())
     }
 
+    @Test
+    fun quickSortTest() {
+        val sortedArr = quickSort(arr)
+        assertEquals(arr.sorted(), sortedArr.toList())
+    }
+
 }
