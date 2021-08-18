@@ -39,36 +39,33 @@ fun insertionSort(arr: IntArray): IntArray {
 }
 
 fun quickSort(arr: IntArray): IntArray {
-    val i = 0
-    val j = arr.size - 1
-    return qs(i, j, arr)
-}
-
-fun qs(i: Int, j: Int, arr: IntArray): IntArray {
-    var l = i
-    var h = j
-    val m = l + (h - l) / 2
-    val med = arr[m]
-    while (l <= h) {
-        while (arr[l] < med) {
-            l++
+    fun qs(i: Int, j: Int): IntArray {
+        var l = i
+        var h = j
+        val m = l + (h - l) / 2
+        val med = arr[m]
+        while (l <= h) {
+            while (arr[l] < med) {
+                l++
+            }
+            while (arr[h] > med) {
+                h--
+            }
+            if (l <= h) {
+                swap(arr, l, h)
+                l++
+                h--
+            }
+            if (l < j) {
+                qs(l, j)
+            }
+            if (i < h) {
+                qs(i, h)
+            }
         }
-        while (arr[h] > med) {
-            h--
-        }
-        if (l <= h) {
-            swap(arr, l, h)
-            l++
-            h--
-        }
-        if (l < j) {
-            qs(l, j, arr)
-        }
-        if (i < h) {
-            qs(i, h, arr)
-        }
+        return arr
     }
-    return arr
+    return qs(0, arr.size - 1)
 }
 
 fun swap(arr: IntArray, i: Int, j: Int) {
