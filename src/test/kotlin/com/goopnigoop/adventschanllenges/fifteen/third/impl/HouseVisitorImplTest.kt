@@ -22,4 +22,11 @@ class HouseVisitorImplTest {
         val mapOfHouses = houseVisitor.visitBySeveralVisitors(content,2)
         assertEquals(2639, mapOfHouses.size)
     }
+
+    @Test
+    internal fun shouldCountAllVisitedHousesForMultipleVisitorsChunked() {
+        val content = File(filePath).readLines().joinToString()
+        val mapOfHouses = houseVisitor.visitBySeveralVisitorsChunked(content,2)
+        assertEquals(2639, mapOfHouses.size)
+    }
 }

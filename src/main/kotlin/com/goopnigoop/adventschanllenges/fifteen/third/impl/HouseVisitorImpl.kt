@@ -42,6 +42,17 @@ class HouseVisitorImpl : HouseVisitor {
         return listOfMaps.map { it.first }.reduce { map, nextMap -> (map + nextMap) as MutableMap<Point, Int> }
     }
 
+    override fun visitBySeveralVisitorsChunked(inputMovements: String, quantityOfVisitors: Int): Map<Point, Int> {
+        val chunked = inputMovements.chunked(quantityOfVisitors)
+        var initial = mutableMapOf<Point, Int>()
+        for (i in 0 until quantityOfVisitors) {
+            val map = visit(chunked.map { it[i] }.joinToString())
+            initial = (initial + map) as MutableMap<Point, Int>
+        }
+        return initial
+    }
+
+
     private fun initializeListOfMaps(quantityOfVisitors: Int): MutableList<Pair<MutableMap<Point, Int>, Point>> {
         return Stream.generate { mutableMapOf<Point, Int>().also { it[initialPoint] = 1 } }
             .limit(quantityOfVisitors.toLong())
