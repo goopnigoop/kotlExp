@@ -1,9 +1,8 @@
 package com.goopnigoop.adventschanllenges.fifteen.second
 
-import org.junit.jupiter.api.Test
-
-import org.junit.jupiter.api.Assertions.*
+import org.junit.Test
 import java.io.File
+import kotlin.test.assertEquals
 
 private const val filePath = "src/test/kotlin/com/goopnigoop/adventschanllenges/fifteen/second/sample"
 

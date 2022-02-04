@@ -1,7 +1,7 @@
 package com.goopnigoop.adventschanllenges.fifteen.third.impl
 
 import com.goopnigoop.adventschanllenges.fifteen.third.HouseVisitor
-import org.junit.jupiter.api.Test
+import org.junit.Test
 import java.io.File
 import kotlin.test.assertEquals
 

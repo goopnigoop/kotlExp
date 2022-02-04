@@ -1,6 +1,6 @@
 package com.goopnigoop.exp.algorithms
 
-import org.junit.jupiter.api.Test
+import org.junit.Test
 import kotlin.test.assertEquals
 
 internal class SortKtTest {
