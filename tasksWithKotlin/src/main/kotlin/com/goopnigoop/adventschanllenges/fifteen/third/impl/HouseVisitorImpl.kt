@@ -3,7 +3,6 @@ package com.goopnigoop.adventschanllenges.fifteen.third.impl
 import com.goopnigoop.adventschanllenges.fifteen.third.HouseVisitor
 import java.util.function.Function
 import java.util.stream.Stream
-import kotlin.streams.toList
 
 class HouseVisitorImpl : HouseVisitor {
     private val mapWithSigns =
