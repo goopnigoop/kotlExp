@@ -4,3 +4,7 @@
 /kotlExp.iml
 /.idea/
 /.dcignore
+/tasksWithJava17/target/
+/tasksWithKotlin/target/
+/tasksWithJava17/tasksWithJava17.iml
+/tasksWithKotlin/tasksWithKotlin.iml
