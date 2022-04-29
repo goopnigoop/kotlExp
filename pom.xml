@@ -24,6 +24,8 @@
     <modules>
         <module>tasksWithJava17</module>
         <module>tasksWithKotlin</module>
+        <module>plainDb</module>
+        <module>everything</module>
     </modules>
 
     <name>kotlExp</name>
@@ -35,4 +37,19 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.11</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+    </dependencies>
 </project>
