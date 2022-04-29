@@ -30,7 +30,8 @@ import static org.apache.commons.lang3.math.NumberUtils.min;
  * Output:
  * 0 1 2 3 4 5
  */
-public class HouseSectionSearcher {
+public class HouseSectionSearcher implements HouseSectionSearchable {
+    @Override
     public int[] countDistance(int[] inputArray) {
         final int[] clone = ArrayUtils.clone(inputArray);
         processFirst(clone);

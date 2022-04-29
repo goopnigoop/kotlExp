@@ -1,5 +1,6 @@
 package com.goopniggop.live.tasks;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,7 +11,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 class HouseSectionSearcherTest {
-    private final HouseSectionSearcher houseSectionSearcher = new HouseSectionSearcher();
+    private final HouseSectionSearchable houseSectionSearcher = new HouseSectionSearcher();
+    private final HouseSectionSearchable houseSectionSearchAdditionalAlgorithm = new HouseSectionSearchAdditionalAlgorithm();
 
     public static Stream<Arguments> arraysToCheck() {
         return Stream.of(Arguments.of(new int[]{1, 3, 0, 4, 7}, new int[]{2, 1, 0, 1, 2}),
@@ -22,8 +24,17 @@ class HouseSectionSearcherTest {
 
     @ParameterizedTest(name = "{index}:should return {1} for the following array {0}")
     @MethodSource
+    @DisplayName("should return proper array with results for the search with first algorithm")
     void arraysToCheck(int[] input, int[] expected) {
         final int[] result = houseSectionSearcher.countDistance(input);
+        assertThat(result, is(expected));
+    }
+
+    @ParameterizedTest(name = "Second algorithm {index}:should return {1} for the following array {0}")
+    @MethodSource("arraysToCheck")
+    @DisplayName("should return proper array with results for the search with another algorithm")
+    void arraysToCheckForSecondAlgorithm(int[] input, int[] expected) {
+        final int[] result = houseSectionSearchAdditionalAlgorithm.countDistance(input);
         assertThat(result, is(expected));
     }
 }
