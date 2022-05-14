@@ -21,14 +21,19 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
-@ActiveProfiles("test-containers-flyway")
-class UserRepositoryTCIntegrationTest extends TestsWithDbBase {
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
+@Testcontainers
+@ActiveProfiles("test-containers")
+class UserRepositoryTCIntegrationTest {
 
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    UserAccountRepository userAccountRepository;
 
     @BeforeEach
-    public void clear() {
+    void clear() {
+        userAccountRepository.deleteAll();
         userRepository.deleteAll();
     }
 

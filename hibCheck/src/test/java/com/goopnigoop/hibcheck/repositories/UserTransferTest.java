@@ -28,8 +28,8 @@ import static org.hamcrest.Matchers.is;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
 @Testcontainers
-@ActiveProfiles("test-containers-flyway")
-class UserTransferTest extends TestsWithDbBase {
+@ActiveProfiles("test-containers")
+class UserTransferTest {
     @Autowired
     private UserService userService;
     @Autowired
